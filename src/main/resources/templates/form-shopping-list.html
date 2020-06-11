@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kreacja listy zakupów</title>
+    <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/menu.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/form.css}" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=latin-ext"
+          rel="stylesheet">
+</head>
+<body>
+<menu>
+    <div class="main-menu">
+        <a th:href="@{/}" class="menu-logo"><span class="green">Web</span>Diet</a>
+        <a th:href="@{/show-products}" class="menu-option">Produkty</a>
+        <a th:href="@{/show-recipes}" class="menu-option">Przepisy</a>
+        <a th:href="@{/show-shopping-lists}" class="menu-option">Listy</a>
+    </div>
+    <div class="sub-menu">
+        <a th:href="@{/profile}" class="menu-option square"><i class="fas fa-user"></i></a>
+        <a th:href="@{/logout}" class="menu-option square"><i class="fas fa-power-off"></i></a>
+    </div>
+</menu>
+<main class="container">
+    <div class="form-box">
+        <form th:action="${'/create-shopping-list?id=' + shoppingListRequest.guid}" th:object="${shoppingListRequest}"
+              th:method="post">
+            <p class="errorMessage" th:text="${error}"/>
+
+            <input class="textInput" type="number" placeholder="Ilość dni" th:field="*{daysNumber}">
+
+            <div class="margin-bottom">
+                <button id="addProduct" class="button">Dodaj przepis</button>
+            </div>
+
+            <div th:each="pr, stat: *{recipes}" class="hidden productDiv">
+                <select class="select" th:field="*{recipes[__${stat.index}__].guid}">
+                    <option th:each="recipe : ${allRecipes}"
+                            th:value="${recipe.guid}"
+                            th:text="${recipe.name}"/>
+                </select>
+            </div>
+            <div class="margin-bottom">
+                <button class="button" type="submit"><p th:text="${submitText}"/></button>
+            </div>
+        </form>
+    </div>
+</main>
+</div>
+<script type="text/javascript" th:src="@{/js/displayNextElement.js}"></script>
+</body>
+</html>

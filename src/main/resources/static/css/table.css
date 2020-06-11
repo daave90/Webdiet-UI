@@ -1,0 +1,35 @@
+table {
+    text-align: center;
+    border-collapse: collapse;
+    table-layout: auto;
+    width: 60%;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+tr{
+    transition: all 0.3s ease;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #444;
+    color: white;
+    opacity: 0.9;
+}
+.td-options {
+    display: flex;
+    justify-content: center;
+}

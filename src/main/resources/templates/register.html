@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <link th:href="@{/css/reset.css}" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=latin-ext"
+          rel="stylesheet">
+</head>
+<body>
+<div class="logo">
+    <span class="green">Web</span>diet
+</div>
+<div class="container">
+    <div class="form-container">
+
+        <form id="form" th:action="@{/register}" th:object="${userRequest}" th:method="POST">
+            <p class="errorMessage" th:text="${error}"/>
+            <input id="firstName" class="textInput" type="text" placeholder="Imię" th:field="*{firstName}">
+            <input id="lastName" class="textInput" type="text" placeholder="Nazwisko" th:field="*{lastName}">
+            <input id="username" class="textInput" type="text" placeholder="Login" th:field="*{username}">
+            <input id="password" class="textInput" type="password" placeholder="Hasło" th:field="*{password}">
+            <div class="margin-top">
+                <button id="submit" class="button" type="submit">Zarejestruj</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

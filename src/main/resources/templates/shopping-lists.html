@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona główna</title>
+    <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/menu.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/table.css}" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=latin-ext"
+          rel="stylesheet">
+</head>
+<body>
+<menu>
+    <div class="main-menu">
+        <a th:href="@{/}" class="menu-logo"><span class="green">Web</span>Diet</a>
+        <a th:href="@{/show-products}" class="menu-option">Produkty</a>
+        <a th:href="@{/show-recipes}" class="menu-option">Przepisy</a>
+        <a th:href="@{/show-shopping-lists}" class="menu-option active">Listy</a>
+    </div>
+    <div class="sub-menu">
+        <a th:href="@{/create-shopping-list}" class="menu-option square"><i class="fas fa-plus"></i></a>
+        <a th:href="@{/profile}" class="menu-option square"><i class="fas fa-user"></i></a>
+        <a th:href="@{/logout}" class="menu-option square"><i class="fas fa-power-off"></i></a>
+    </div>
+</menu>
+<main class="container">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Ilość dni</th>
+            <th></th>
+        </tr>
+        <tr th:each="shoppingList : ${shoppingLists}">
+            <td th:text="${shoppingList.guid}"/>
+            <td th:text="${shoppingList.daysNumber}"/>
+            <td class="td-options">
+                <a th:href="${'/details-shopping-list?id=' + shoppingList.guid}" class="aAsButton button"
+                   style="width: 5vh; margin-right: 5%;"><i class="fas fa-info"></i></a>
+                <a th:href="${'/delete-shopping-list?id=' + shoppingList.guid}" class="aAsButton button"
+                   style="width: 5vh;"><i class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+    </table>
+</main>
+</div>
+</body>
+</html>

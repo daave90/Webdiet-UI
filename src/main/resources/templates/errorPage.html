@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona główna</title>
+    <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/menu.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=latin-ext"
+          rel="stylesheet">
+</head>
+<body>
+<menu>
+    <div class="main-menu">
+        <a th:href="@{/}" class="menu-logo"><span class="green">Web</span>Diet</a>
+        <a th:href="@{/show-products}" class="menu-option">Produkty</a>
+        <a th:href="@{/show-recipes}" class="menu-option">Przepisy</a>
+        <a th:href="@{/show-shopping-lists}" class="menu-option">Listy</a>
+    </div>
+    <div class="sub-menu">
+        <a th:href="@{/profile}" class="menu-option square"><i class="fas fa-user"></i></a>
+        <a th:href="@{/logout}" class="menu-option square"><i class="fas fa-power-off"></i></a>
+    </div>
+</menu>
+<main class="errorContainer">
+    <p class="errorMessage" style="font-size:200%; margin-bottom:1%;">Nieoczekiwany błąd aplikacji</p>
+    <p class="errorMessage" th:text="${error}"/>
+</main>
+</div>
+</body>
+</html>
+</body>
+</html>
