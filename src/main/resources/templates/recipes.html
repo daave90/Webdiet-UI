@@ -7,6 +7,7 @@
     <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/menu.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/table.css}" rel="stylesheet" type="text/css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"
           type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=latin-ext"
@@ -27,19 +28,27 @@
     </div>
 </menu>
 <main class="container" style="flex-wrap:wrap;">
-    <div class="cart" th:each="recipe : ${recipes}">
-        <h1 th:text="${recipe.name}"></h1>
-        <h2 th:text="${recipe.type.value + ' (' + #numbers.formatDecimal(recipe.totalKcal == null ? 0 : recipe.totalKcal, 0, 2) + ' kcal)'}"></h2>
-        <p th:text="${recipe.description}"/>
-        <div class="buttons">
-            <a th:href="${'/details-recipe?id=' + recipe.guid}" class="aAsButton button"
-               style="width: 5vh; margin-right: 5%;"><i class="fas fa-info"></i></a>
-            <a th:href="${'/update-recipe?id=' + recipe.guid}" class="aAsButton button"
-               style="width: 5vh; margin-right: 5%;"><i class="fas fa-pencil-alt"></i></a>
-            <a th:href="${'/delete-recipe?id=' + recipe.guid}" class="aAsButton button" style="width: 5vh;"><i
-                    class="fas fa-trash-alt"></i></a>
-        </div>
-    </div>
+    <table>
+        <tr>
+            <th>Nazwa</th>
+            <th>Typ</th>
+            <th>Kcal</th>
+            <th></th>
+        </tr>
+        <tr th:each="recipe : ${recipes}">
+            <td th:text="${recipe.name}"/>
+            <td th:text="${recipe.type.value}"/>
+            <td th:text="${#numbers.formatDecimal(recipe.totalKcal == null ? 0 : recipe.totalKcal, 0, 2) + ' kcal'}"/>
+            <td class="td-options">
+                <a th:href="${'/details-recipe?id=' + recipe.guid}" class="aAsButton button"
+                   style="width: 5vh; margin-right: 5%;"><i class="fas fa-info"></i></a>
+                <a th:href="${'/update-recipe?id=' + recipe.guid}" class="aAsButton button"
+                   style="width: 5vh; margin-right: 5%;"><i class="fas fa-pencil-alt"></i></a>
+                <a th:href="${'/delete-recipe?id=' + recipe.guid}" class="aAsButton button" style="width: 5vh;"><i
+                        class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+    </table>
 </main>
 </div>
 </body>
