@@ -42,7 +42,7 @@
                 <select class="select" th:field="*{recipes[__${stat.index}__].guid}">
                     <option th:each="recipe : ${allRecipes}"
                             th:value="${recipe.guid}"
-                            th:text="${recipe.name}"/>
+                            th:text="${recipe.name + ' ' + recipe.type.value.toUpperCase()}"/>
                 </select>
             </div>
             <div class="margin-bottom">
