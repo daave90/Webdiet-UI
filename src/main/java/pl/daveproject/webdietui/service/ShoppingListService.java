@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pl.daveproject.webdietui.exception.WebdietRestException;
 import pl.daveproject.webdietui.model.NameAndGuid;
+import pl.daveproject.webdietui.model.enums.RecipeType;
 import pl.daveproject.webdietui.model.recipe.Recipe;
 import pl.daveproject.webdietui.model.shoppinglist.ShoppingList;
 import pl.daveproject.webdietui.model.shoppinglist.ShoppingListRequest;
@@ -69,6 +70,7 @@ public class ShoppingListService {
         List<Recipe> recipes = new ArrayList<>();
         Recipe emptyRecipe = new Recipe();
         emptyRecipe.setName("Przepis");
+        emptyRecipe.setType(RecipeType.EMPTY);
         recipes.add(emptyRecipe);
         recipes.addAll(recipeService.getAllRecipes());
         return recipes;

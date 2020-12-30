@@ -8,7 +8,8 @@ public enum RecipeType {
     DRUGIE_SNIADANIE("Drugie śniadanie"),
     OBIAD("Obiad"),
     PODWIECZOREK("Podwieczorek"),
-    KOLACJA("Kolacja");
+    KOLACJA("Kolacja"),
+    EMPTY("");
 
     private String value;
 
