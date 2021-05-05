@@ -3,7 +3,7 @@ menu{
     justify-content: space-between;
     background-color: #444;
     overflow: hidden;
-    height: 9vh;
+    height: 7vh;
     opacity: 0.9;
     margin-bottom: 1%;
 }
@@ -27,7 +27,7 @@ menu{
     transition: all 0.8s ease;
     color: #f2f2f2;
     text-align: center;
-    line-height: 9vh;
+    line-height: 7vh;
     text-decoration: none;
     font-size: 120%;
 }
@@ -40,7 +40,7 @@ menu{
     font-size: 200%;
     color: #f2f2f2;
     text-align: center;
-    line-height: 9vh;
+    line-height: 7vh;
     text-decoration: none;
 }
 a.menu-option:hover {
